@@ -1,6 +1,8 @@
-import json
+import pandas as pd
 
-with open("test.jsonl", "r", encoding="utf-8") as f:
-    first_line = f.readline()
+train = pd.read_json("train.jsonl", lines=True)
 
-print(first_line)
+print(train.columns.tolist())
+
+print("\nTags distribution:")
+print(train["tags"].value_counts())
